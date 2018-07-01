@@ -14,7 +14,6 @@ public class UndirectedUnweightedGraph<E> implements Graph<E> {
         graph = new HashMap<>();
     }
 
-
     /**
      * Gets the current state of the graph
      * @return Current state of graph
@@ -103,7 +102,6 @@ public class UndirectedUnweightedGraph<E> implements Graph<E> {
             graph.remove(vertex);
         }
     }
-
 
     /**
      * Checks if the input vertex is contained in the graph
