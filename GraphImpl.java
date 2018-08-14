@@ -105,6 +105,15 @@ public class GraphImpl<E> implements Graph<E> {
         }
     }
 
+    /**
+     * Gets all the vertices in the graph
+     * @return Set of vertices in the graph
+     */
+
+    @Override
+    public Set<E> getVertices() {
+        return graph.keySet();
+    }
 
     /**
      * Checks if the input vertex is contained in the graph
@@ -172,6 +181,21 @@ public class GraphImpl<E> implements Graph<E> {
             return hasVertex(from) && hasVertex(to) && graph.get(from).containsKey(to);
         }
         return hasVertex(from) && hasVertex(to) && (graph.get(from).containsKey(to) || graph.get(to).containsKey(from));
+    }
+
+    /**
+     * Gets the weight between the two input edges
+     * @param from Vertex edge that is to be checked
+     * @param to Vertex edge that is to be checked
+     * @return Weight between vertices
+     */
+
+    @Override
+    public int getWeight(E from, E to) throws NoSuchFieldException {
+        if (hasEdge(from, to)) {
+            return graph.get(from).get(to);
+        }
+        throw new NoSuchFieldException();
     }
 
     /**
